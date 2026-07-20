@@ -17,7 +17,6 @@ export function ServicesPage() {
         label="Our Services"
         title="What We Do"
         image={IMAGES.services}
-        imageAlt="Worker welding at industrial site"
       />
 
       <section className="section-pad bg-blue-900">
@@ -100,6 +99,7 @@ export function ServicesPage() {
               className="btn-primary w-full sm:w-auto"
             >
               Contact Now
+              <span className="sr-only"> (opens in new tab)</span>
             </a>
           </Reveal>
         </div>

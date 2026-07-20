@@ -9,6 +9,9 @@ import { SmoothScroll } from './SmoothScroll'
 export function Layout() {
   return (
     <SmoothScroll>
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       <ScrollReveal />
       <SeoHead />
       <StructuredData />

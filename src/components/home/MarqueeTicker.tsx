@@ -4,7 +4,7 @@ export function MarqueeTicker() {
   const items = [...MARQUEE_ITEMS, ...MARQUEE_ITEMS]
 
   return (
-    <div className="overflow-hidden bg-amber-500 py-3 sm:py-3.5">
+    <div className="overflow-hidden bg-amber-500 py-3 sm:py-3.5" aria-hidden="true">
       <div className="marquee-track flex w-max gap-10 whitespace-nowrap sm:gap-16">
         {items.map((item, index) => (
           <span

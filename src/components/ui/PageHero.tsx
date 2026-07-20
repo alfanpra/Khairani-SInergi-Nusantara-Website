@@ -4,7 +4,6 @@ type PageHeroProps = {
   label: string
   title: string
   image?: string
-  imageAlt?: string
   compact?: boolean
 }
 
@@ -12,7 +11,6 @@ export function PageHero({
   label,
   title,
   image,
-  imageAlt,
   compact,
 }: PageHeroProps) {
   const isVideo =
@@ -36,12 +34,14 @@ export function PageHero({
               loop
               playsInline
               className="absolute inset-0 h-full w-full object-cover"
-              aria-label={imageAlt ?? title}
+              aria-hidden="true"
+              tabIndex={-1}
             />
           ) : (
             <img
               src={image}
-              alt={imageAlt ?? title}
+              alt=""
+              aria-hidden="true"
               className="absolute inset-0 h-full w-full object-cover"
             />
           )}

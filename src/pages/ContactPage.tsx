@@ -15,7 +15,6 @@ export function ContactPage() {
         label="Contact"
         title="Let's Work Together"
         image={IMAGES.contact}
-        imageAlt="Boiler refinery facility"
         compact
       />
 
@@ -41,6 +40,7 @@ export function ContactPage() {
               className="mt-3 inline-block text-sm text-green-600 hover:underline"
             >
               Chat on WhatsApp →
+              <span className="sr-only"> (opens in new tab)</span>
             </a>
           </Reveal>
 
@@ -108,6 +108,7 @@ export function ContactPage() {
               className="btn-primary mt-8 w-full sm:w-auto"
             >
               Chat on WhatsApp
+              <span className="sr-only"> (opens in new tab)</span>
             </a>
           </Reveal>
         </div>

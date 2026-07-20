@@ -5,14 +5,17 @@ function FooterLinkItem({ label, path, external }: { label: string; path: string
   const className = 'text-sm text-white-soft/50 transition-colors hover:text-white-soft/80'
 
   if (external || path.startsWith('http') || path.startsWith('mailto:') || path.startsWith('tel:')) {
+    const opensInNewTab = path.startsWith('http')
+
     return (
       <a
         href={path}
-        target={path.startsWith('http') ? '_blank' : undefined}
-        rel={path.startsWith('http') ? 'noopener noreferrer' : undefined}
+        target={opensInNewTab ? '_blank' : undefined}
+        rel={opensInNewTab ? 'noopener noreferrer' : undefined}
         className={className}
       >
         {label}
+        {opensInNewTab && <span className="sr-only"> (opens in new tab)</span>}
       </a>
     )
   }
@@ -36,10 +39,10 @@ export function Footer() {
           <p className="mt-5 text-sm leading-relaxed text-white-soft/50">{FOOTER_DESCRIPTION}</p>
         </div>
 
-        <div className="mt-16 grid grid-cols-2 gap-10 sm:grid-cols-4 sm:gap-8 lg:mt-20">
+        <nav aria-label="Footer" className="mt-16 grid grid-cols-2 gap-10 sm:grid-cols-4 sm:gap-8 lg:mt-20">
           {FOOTER_COLUMNS.map((column) => (
             <div key={column.title}>
-              <p className="font-heading text-sm font-semibold text-white-soft">{column.title}</p>
+              <h2 className="font-heading text-sm font-semibold text-white-soft">{column.title}</h2>
               <ul className="mt-5 space-y-3">
                 {column.links.map((link) => (
                   <li key={link.label}>
@@ -49,7 +52,7 @@ export function Footer() {
               </ul>
             </div>
           ))}
-        </div>
+        </nav>
       </div>
 
       <div className="border-t border-white/10">

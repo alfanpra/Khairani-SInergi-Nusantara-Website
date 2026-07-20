@@ -9,7 +9,6 @@ export function AboutPage() {
         label="About Us"
         title="Who We Are"
         image={IMAGES.about}
-        imageAlt="Industrial pipe installation at power plant"
         compact
       />
 

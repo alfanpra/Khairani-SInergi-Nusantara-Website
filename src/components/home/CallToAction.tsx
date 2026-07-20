@@ -33,6 +33,7 @@ export function CallToAction() {
               className="btn-primary w-full sm:w-auto"
             >
               Chat on WhatsApp
+              <span className="sr-only"> (opens in new tab)</span>
             </a>
             <a href={`mailto:${COMPANY.email}`} className="btn-ghost w-full sm:w-auto">
               Send Email

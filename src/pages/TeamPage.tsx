@@ -10,7 +10,6 @@ export function TeamPage() {
         label="Our Team"
         title="The People Behind the Work"
         image={IMAGES.team}
-        imageAlt="Morning safety induction briefing"
       />
 
       <section className="bg-cream py-12 text-blue-950 sm:py-16 lg:py-20">

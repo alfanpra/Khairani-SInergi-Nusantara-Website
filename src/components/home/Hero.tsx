@@ -12,9 +12,9 @@ export function Hero() {
         loop
         playsInline
         preload="auto"
-      >
-        Your browser does not support the video tag.
-      </video>
+        aria-hidden="true"
+        tabIndex={-1}
+      />
       <div className="absolute inset-0 bg-gradient-to-t from-blue-950 via-blue-950/85 to-blue-900/25" />
 
       <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-10 container-pad pb-28 pt-28 sm:pb-32 sm:pt-32 lg:grid-cols-12 lg:gap-12 lg:pb-32">
@@ -64,6 +64,7 @@ export function Hero() {
               className="btn-primary w-full sm:w-auto"
             >
               Partner With Us
+              <span className="sr-only"> (opens in new tab)</span>
             </a>
             <a href="#services" className="btn-ghost w-full sm:w-auto">
               Our Services
@@ -99,6 +100,7 @@ export function Hero() {
       <div
         className="hero-enter absolute bottom-6 right-4 z-10 sm:bottom-8 sm:left-6 sm:right-auto lg:left-8"
         style={{ '--hero-delay': '980ms' } as CSSProperties}
+        aria-hidden="true"
       >
         <div className="flex items-center gap-3 text-[10px] font-heading font-medium uppercase tracking-[0.25em] text-white-soft/40 sm:tracking-[0.3em]">
           <div className="accent-rule-vertical hidden h-12 sm:block" />
