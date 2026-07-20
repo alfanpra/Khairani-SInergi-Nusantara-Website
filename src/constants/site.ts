@@ -155,7 +155,7 @@ export const TEAM_MEMBERS = [
 export const TEAM_CERTIFICATIONS = ["ASME", "API", "K3", "LOTO", "NDT", "Confined Space"] as const;
 
 export const IMAGES = {
-  hero: "/images/boiler-refinery.webp",
+  hero: "/hero.webm",
   about: "/images/big-pipe-image.webp",
   hse: "/images/worker-with-harness.webp",
   team: "/images/morning-safety-induction.webp",

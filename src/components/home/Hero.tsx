@@ -3,12 +3,17 @@ import { COMPANY, IMAGES } from '../../constants/site'
 export function Hero() {
   return (
     <section className="relative flex min-h-screen items-end overflow-hidden">
-      <img
+      <video
         src={IMAGES.hero}
-        alt="Boiler refinery industrial facility"
         className="absolute inset-0 h-full w-full object-cover"
-        fetchPriority="high"
-      />
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+      >
+        Your browser does not support the video tag.
+      </video>
       <div className="absolute inset-0 bg-gradient-to-t from-blue-950 via-blue-950/80 to-blue-900/40" />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-24 pt-32 lg:px-8 lg:pb-32">
