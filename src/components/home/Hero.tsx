@@ -14,6 +14,7 @@ export function Hero() {
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-24 pt-32 lg:px-8 lg:pb-32">
         <p className="section-label mb-6">PT Khairani Sinergi Nusantara</p>
         <h1 className="font-display text-[clamp(2.75rem,10vw,7rem)] font-bold leading-[0.95] tracking-tight text-balance">
+          <span className="sr-only">{COMPANY.name} — </span>
           <span className="block">Engineering Safety.</span>
           <span className="block text-amber-500">Powering Nusantara.</span>
         </h1>
