@@ -15,16 +15,16 @@ function MenuIcon({ open }: { open: boolean }) {
 }
 
 export function Navbar() {
-  const navRef = useRef<HTMLElement>(null)
+  const navBarRef = useRef<HTMLElement>(null)
   const location = useLocation()
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
-    const nav = navRef.current
-    if (!nav) return
+    const navBar = navBarRef.current
+    if (!navBar) return
 
     const onScroll = () => {
-      nav.classList.toggle('glass-nav', window.scrollY > 40)
+      navBar.classList.toggle('glass-nav', window.scrollY > 40)
     }
 
     onScroll()
@@ -44,8 +44,9 @@ export function Navbar() {
   }, [menuOpen])
 
   return (
-    <header ref={navRef} className="fixed inset-x-0 top-0 z-50">
+    <header className="fixed inset-x-0 top-0 z-50">
       <nav
+        ref={navBarRef}
         className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 sm:py-5 lg:px-8"
         aria-label="Main navigation"
       >

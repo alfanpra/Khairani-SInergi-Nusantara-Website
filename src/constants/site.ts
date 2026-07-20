@@ -210,4 +210,5 @@ export const IMAGES = {
   hse: "/images/worker-with-harness.webp",
   team: "/images/morning-safety-induction.webp",
   services: "/images/worker-welding-2.webp",
+  contact: "/images/boiler-refinery-2.webp",
 } as const;

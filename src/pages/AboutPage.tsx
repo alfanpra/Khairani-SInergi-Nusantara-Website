@@ -8,8 +8,8 @@ export function AboutPage() {
       <PageHero
         label="About Us"
         title="Who We Are"
-        image={IMAGES.hero}
-        imageAlt="Boiler refinery facility"
+        image={IMAGES.about}
+        imageAlt="Industrial pipe installation at power plant"
         compact
       />
 

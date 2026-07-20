@@ -45,6 +45,7 @@ export const PAGE_SEO: Record<string, PageSeoConfig> = {
       "Learn about PT Khairani Sinergi Nusantara — a safety-first engineering company specializing in PLTU boiler maintenance, inspection, and repair with nationwide coverage across Indonesia.",
     path: "/about",
     keywords: [...SEO_KEYWORDS, "about KSN", "boiler engineering company Indonesia", "SINERGI values"],
+    ogImage: `${SITE_URL}${IMAGES.about}`,
   },
   "/services": {
     title: `Boiler Services | Inspection, Maintenance & Retubing | ${COMPANY.shortName}`,
@@ -73,6 +74,7 @@ export const PAGE_SEO: Record<string, PageSeoConfig> = {
     description: `Contact PT Khairani Sinergi Nusantara in Surabaya for boiler inspection, maintenance, and emergency support. Call ${COMPANY.phone} or email ${COMPANY.email}.`,
     path: "/contact",
     keywords: [...SEO_KEYWORDS, "contact boiler service Surabaya", "boiler contractor Jawa Timur"],
+    ogImage: `${SITE_URL}${IMAGES.contact}`,
   },
 };
 

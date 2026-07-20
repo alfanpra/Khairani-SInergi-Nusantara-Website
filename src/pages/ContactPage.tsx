@@ -1,6 +1,6 @@
 import { PageHero } from '../components/ui/PageHero'
 import { Reveal } from '../components/ui/Reveal'
-import { COMPANY } from '../constants/site'
+import { COMPANY, IMAGES } from '../constants/site'
 
 const BUSINESS_HOURS = [
   { day: 'Monday – Friday', hours: '08:00 – 17:00' },
@@ -11,7 +11,13 @@ const BUSINESS_HOURS = [
 export function ContactPage() {
   return (
     <>
-      <PageHero label="Contact" title="Let's Work Together" compact />
+      <PageHero
+        label="Contact"
+        title="Let's Work Together"
+        image={IMAGES.contact}
+        imageAlt="Boiler refinery facility"
+        compact
+      />
 
       <section className="section-pad bg-cream text-blue-950">
         <div className="mx-auto grid max-w-7xl gap-4 container-pad sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
