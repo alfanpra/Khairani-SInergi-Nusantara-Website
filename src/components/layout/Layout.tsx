@@ -13,7 +13,7 @@ export function Layout() {
       <SeoHead />
       <StructuredData />
       <Navbar />
-      <main id="main-content">
+      <main id="main-content" className="overflow-x-hidden">
         <Outlet />
       </main>
       <Footer />

@@ -13,14 +13,18 @@ export function AboutPage() {
         compact
       />
 
-      <section className="bg-cream py-24 text-blue-950 lg:py-32">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:px-8">
-          <Reveal as="blockquote" className="font-display text-3xl font-bold leading-tight text-blue-900">
+      <section className="section-pad bg-cream text-blue-950">
+        <div className="mx-auto grid max-w-7xl gap-10 container-pad lg:grid-cols-2 lg:gap-12">
+          <Reveal
+            as="blockquote"
+            className="font-display text-[clamp(1.5rem,4.5vw,1.875rem)] font-bold leading-[1.15] text-blue-900 sm:text-3xl sm:leading-[1.12]"
+            variant="right"
+          >
             &ldquo;Becoming the leading, reliable provider of PLTU boiler maintenance
             and inspection — delivering peace of mind through the highest safety
             standards.&rdquo;
           </Reveal>
-          <Reveal className="space-y-6 text-blue-800/80" delay={150}>
+          <Reveal className="space-y-6 text-blue-800/80" delay={120} variant="fade">
             <div>
               <p className="section-label !text-green-500">Vision</p>
               <p className="mt-3 leading-relaxed">
@@ -42,29 +46,33 @@ export function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-blue-900 py-24 lg:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <Reveal>
-            <p className="section-label">Core Values</p>
-            <h2 className="mt-4 font-heading text-4xl font-semibold">SINERGI</h2>
+      <section className="section-pad bg-blue-900">
+        <div className="mx-auto max-w-7xl container-pad">
+          <Reveal variant="left">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+              <span className="h-px w-8 bg-amber-500" />
+              <p className="section-label">Core Values</p>
+            </div>
+            <h2 className="mt-4 font-display text-[clamp(2rem,5vw,2.5rem)] font-bold sm:text-4xl">SINERGI</h2>
           </Reveal>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
             {SINERGI_VALUES.map((value, index) => (
               <Reveal
                 key={value.letter}
                 as="article"
-                className="rounded-2xl border border-white/10 bg-blue-800/40 p-8"
-                delay={index * 100}
+                className="border border-white/10 bg-blue-800/30 p-6 sm:p-8"
+                delay={index * 70}
+                variant={index % 2 === 0 ? 'up' : 'scale'}
               >
-                <span className="font-heading text-3xl font-bold text-amber-500">
+                <span className="font-heading text-2xl font-bold text-amber-500 sm:text-3xl">
                   {String(index + 1).padStart(2, '0')}
                 </span>
-                <h3 className="mt-4 font-heading text-xl font-semibold">
+                <h3 className="mt-3 font-heading text-lg font-semibold sm:mt-4 sm:text-xl">
                   <span className="text-amber-400">{value.letter}</span>
                   {value.title.slice(1)}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-white-soft/70">
+                <p className="mt-2 text-sm leading-relaxed text-white-soft/70 sm:mt-3">
                   {value.description}
                 </p>
               </Reveal>

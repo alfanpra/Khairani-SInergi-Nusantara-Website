@@ -68,23 +68,24 @@ function SocialIcon({ icon }: { icon: string }) {
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-blue-950">
-      <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
+    <footer className="relative border-t border-white/10 bg-blue-950">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-amber-500/60 to-transparent" />
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div className="max-w-3xl">
           <Link to="/" className="inline-flex items-center gap-3">
-            <img src="/favicon.svg" alt="" className="h-10 w-10 rounded-md" />
-            <span className="font-heading text-lg font-bold tracking-tight">
+            <img src="/favicon.svg" alt="" className="h-9 w-9 shrink-0 sm:h-10 sm:w-10" />
+            <span className="font-heading text-base font-bold tracking-tight sm:text-lg">
               <span className="text-amber-500">{COMPANY.shortName}</span>
-              <span className="text-white-soft/80"> — Sinergi Nusantara</span>
+              <span className="hidden text-white-soft/80 sm:inline"> — Sinergi Nusantara</span>
             </span>
           </Link>
-          <p className="mt-5 max-w-2xl text-sm leading-relaxed text-white-soft/55">
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white-soft/55 sm:mt-5">
             {FOOTER_DESCRIPTION}
           </p>
         </div>
 
-        <div className="mt-14 grid gap-12 xl:grid-cols-[minmax(0,1fr)_18rem] xl:gap-16">
-          <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+        <div className="mt-10 grid gap-10 sm:mt-14 xl:grid-cols-[minmax(0,1fr)_18rem] xl:gap-16">
+          <div className="grid grid-cols-2 gap-8 sm:gap-10 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
             {FOOTER_COLUMNS.map((column) => (
               <div key={column.title}>
                 <p className="font-heading text-sm font-semibold text-white-soft">{column.title}</p>
@@ -150,7 +151,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-6 text-xs text-white-soft/40 sm:flex-row sm:items-center sm:justify-between lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-5 text-xs text-white-soft/40 sm:flex-row sm:items-center sm:justify-between sm:px-6 sm:py-6 lg:px-8">
           <p>© {new Date().getFullYear()} {COMPANY.name}. All rights reserved.</p>
           <div className="flex flex-wrap gap-5">
             {FOOTER_LEGAL_LINKS.map(({ label, path }) => (

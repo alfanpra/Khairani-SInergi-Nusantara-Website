@@ -14,7 +14,12 @@
 
   --font-display: "Playfair Display", Georgia, serif;
   --font-heading: "Space Grotesk", system-ui, sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --motion-duration: 520ms;
+  --motion-distance: 14px;
 }
 
 @layer base {
@@ -29,7 +34,10 @@
   }
 
   body {
-    @apply m-0 bg-blue-950 font-body text-white-soft antialiased;
+    @apply m-0 overflow-x-hidden bg-blue-950 font-body text-white-soft antialiased;
+    font-feature-settings:
+      "ss01" 1,
+      "cv01" 1;
   }
 
   ::selection {
@@ -54,30 +62,146 @@
     text-wrap: balance;
   }
 
+  /* Section label — editorial index style */
   .section-label {
-    @apply font-heading text-xs font-medium uppercase tracking-[0.25em] text-amber-500;
+    @apply font-heading text-[11px] font-semibold uppercase tracking-[0.28em] text-amber-500;
+  }
+
+  .section-index {
+    @apply font-heading text-[11px] font-medium tabular-nums tracking-[0.2em] text-white-soft/35;
   }
 
   .glass-nav {
-    @apply border-b border-white/10 bg-blue-950/70 backdrop-blur-xl;
+    @apply border-b border-white/10 bg-blue-950/75 backdrop-blur-xl;
   }
 
-  .reveal-up {
+  /* Primary CTA — sharp industrial, not pill-shaped SaaS */
+  .btn-primary {
+    @apply inline-flex min-h-11 items-center justify-center bg-amber-500 px-6 py-3 font-heading text-sm font-semibold tracking-wide text-blue-950 transition-colors duration-200 hover:bg-amber-400 sm:px-8 sm:py-3.5;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  }
+
+  .btn-ghost {
+    @apply inline-flex min-h-11 items-center justify-center border border-white/20 px-6 py-3 font-heading text-sm font-medium tracking-wide transition-all duration-200 hover:border-amber-500/60 hover:text-amber-400 sm:px-8 sm:py-3.5;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  }
+
+  .btn-primary-sm {
+    @apply inline-flex min-h-10 items-center justify-center bg-amber-500 px-4 py-2 font-heading text-sm font-semibold text-blue-950 transition-colors duration-200 hover:bg-amber-400 sm:px-5;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  }
+
+  /* Shared section spacing */
+  .section-pad {
+    @apply py-16 sm:py-20 lg:py-32 xl:py-36;
+  }
+
+  .container-pad {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Subtle film grain — breaks flat AI gradients */
+  .grain-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 128px 128px;
+  }
+
+  /* Amber rule accent */
+  .accent-rule {
+    @apply h-px w-16 bg-amber-500;
+  }
+
+  .accent-rule-vertical {
+    @apply w-px bg-amber-500/50;
+  }
+
+  /* ── Motion variants (Kowalski: small distance, ease-out, orchestrated) ── */
+
+  .reveal {
     opacity: 0;
-    transform: translateY(50px);
     transition:
-      opacity 1s cubic-bezier(0.33, 1, 0.68, 1),
-      transform 1s cubic-bezier(0.33, 1, 0.68, 1);
+      opacity var(--motion-duration) var(--ease-out-expo),
+      transform var(--motion-duration) var(--ease-out-expo);
     transition-delay: var(--reveal-delay, 0ms);
   }
 
-  .reveal-up.is-visible {
+  .reveal-up {
+    transform: translateY(var(--motion-distance));
+  }
+
+  .reveal-down {
+    transform: translateY(calc(var(--motion-distance) * -1));
+  }
+
+  .reveal-left {
+    transform: translateX(var(--motion-distance));
+  }
+
+  .reveal-right {
+    transform: translateX(calc(var(--motion-distance) * -1));
+  }
+
+  .reveal-fade {
+    transform: none;
+  }
+
+  .reveal-scale {
+    transform: scale(0.97);
+  }
+
+  .reveal.is-visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
+  }
+
+  /* Hero load sequence — page entry, not scroll */
+  .hero-enter {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: hero-enter 680ms var(--ease-out-expo) forwards;
+    animation-delay: var(--hero-delay, 0ms);
+  }
+
+  @keyframes hero-enter {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hero-line {
+    display: block;
+    overflow: hidden;
+    /* Playfair ascenders extend above the cap box — pad before clip */
+    padding-top: 0.18em;
+    padding-bottom: 0.06em;
+    margin-top: -0.1em;
+  }
+
+  .hero-line-inner {
+    display: block;
+    opacity: 0;
+    transform: translateY(110%);
+    animation: hero-line 900ms var(--ease-out-expo) forwards;
+    animation-delay: var(--hero-delay, 0ms);
+    line-height: 1.15;
+    padding-top: 0.04em;
+  }
+
+  @keyframes hero-line {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .marquee-track {
-    animation: marquee 30s linear infinite;
+    animation: marquee 35s linear infinite;
   }
 
   @keyframes marquee {
@@ -88,13 +212,46 @@
       transform: translateX(-50%);
     }
   }
+
+  /* Editorial stat divider */
+  .stat-cell {
+    @apply relative border-t border-blue-900/12 pt-8;
+  }
+
+  .stat-cell::before {
+    content: "";
+    @apply absolute left-0 top-0 h-px w-8 bg-amber-500;
+  }
+}
+
+@media (max-width: 639px) {
+  .section-label {
+    letter-spacing: 0.18em;
+  }
+
+  .accent-rule {
+    @apply w-10;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal-up {
+  .reveal,
+  .reveal-up,
+  .reveal-down,
+  .reveal-left,
+  .reveal-right,
+  .reveal-fade,
+  .reveal-scale {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  .hero-enter,
+  .hero-line-inner {
+    opacity: 1;
+    transform: none;
+    animation: none;
   }
 
   .marquee-track {

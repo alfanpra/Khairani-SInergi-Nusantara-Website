@@ -1,4 +1,4 @@
-import { Reveal } from './Reveal'
+import type { CSSProperties } from 'react'
 
 type PageHeroProps = {
   label: string
@@ -22,8 +22,8 @@ export function PageHero({
 
   return (
     <section
-      className={`relative flex items-end overflow-hidden ${
-        compact ? 'min-h-[60vh]' : 'min-h-[70vh]'
+      className={`grain-overlay relative flex items-end overflow-hidden ${
+        compact ? 'min-h-[45vh] sm:min-h-[55vh]' : 'min-h-[50vh] sm:min-h-[65vh]'
       }`}
     >
       {image ? (
@@ -46,21 +46,26 @@ export function PageHero({
             />
           )}
 
-          <div className="absolute inset-0 bg-gradient-to-t from-blue-950 via-blue-950/80 to-blue-900/50" />
+          <div className="absolute inset-0 bg-gradient-to-t from-blue-950 via-blue-950/85 to-blue-900/30" />
         </>
       ) : (
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 to-blue-950" />
+        <div className="absolute inset-0 bg-blue-900" />
       )}
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-20 pt-32 lg:px-8">
-        <Reveal>
+      <div className="relative z-10 mx-auto w-full max-w-7xl container-pad pb-16 pt-28 sm:pb-20 sm:pt-32">
+        <div
+          className="hero-enter flex flex-wrap items-center gap-3 sm:gap-4"
+          style={{ '--hero-delay': '100ms' } as CSSProperties}
+        >
+          <span className="accent-rule" />
           <p className="section-label">{label}</p>
-        </Reveal>
-        <Reveal delay={150}>
-          <h1 className="mt-4 max-w-4xl font-display text-[clamp(2.5rem,7vw,5.5rem)] font-bold leading-tight">
-            {title}
-          </h1>
-        </Reveal>
+        </div>
+        <h1
+          className="hero-enter mt-5 max-w-4xl font-display text-[clamp(2rem,8vw,5.5rem)] font-bold leading-[1.05] tracking-[-0.02em] sm:mt-6 sm:leading-[1.02]"
+          style={{ '--hero-delay': '220ms' } as CSSProperties}
+        >
+          {title}
+        </h1>
       </div>
     </section>
   )
