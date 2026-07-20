@@ -15,16 +15,16 @@ function MenuIcon({ open }: { open: boolean }) {
 }
 
 export function Navbar() {
-  const navBarRef = useRef<HTMLElement>(null)
+  const navBgRef = useRef<HTMLDivElement>(null)
   const location = useLocation()
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
-    const navBar = navBarRef.current
-    if (!navBar) return
+    const navBg = navBgRef.current
+    if (!navBg) return
 
     const onScroll = () => {
-      navBar.classList.toggle('glass-nav', window.scrollY > 40)
+      navBg.classList.toggle('glass-nav', window.scrollY > 40)
     }
 
     onScroll()
@@ -45,11 +45,12 @@ export function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
-      <nav
-        ref={navBarRef}
-        className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 sm:py-5 lg:px-8"
-        aria-label="Main navigation"
-      >
+      <div className="relative w-full">
+        <div ref={navBgRef} className="absolute inset-0" aria-hidden />
+        <nav
+          className="relative mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 sm:py-5 lg:px-8"
+          aria-label="Main navigation"
+        >
         <Link
           to="/"
           className="group min-w-0 font-heading text-base font-bold tracking-tight sm:text-lg"
@@ -101,6 +102,7 @@ export function Navbar() {
           </button>
         </div>
       </nav>
+      </div>
 
       <div
         id="mobile-nav"

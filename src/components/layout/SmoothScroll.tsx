@@ -4,7 +4,7 @@ import Lenis from 'lenis'
 
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
   const lenisRef = useRef<Lenis | null>(null)
-  const { pathname } = useLocation()
+  const { pathname, hash } = useLocation()
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -38,13 +38,25 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     const lenis = lenisRef.current
 
     requestAnimationFrame(() => {
+      if (hash) {
+        const target = document.querySelector<HTMLElement>(hash)
+        if (target) {
+          if (lenis) {
+            lenis.scrollTo(target, { offset: -112, immediate: true })
+          } else {
+            target.scrollIntoView()
+          }
+          return
+        }
+      }
+
       if (lenis) {
         lenis.scrollTo(0, { immediate: true })
       } else {
         window.scrollTo(0, 0)
       }
     })
-  }, [pathname])
+  }, [pathname, hash])
 
   return <>{children}</>
 }
