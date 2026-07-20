@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --color-blue-950: #030914;
+  --color-blue-900: #07152d;
+  --color-blue-800: #0d2347;
+  --color-blue-700: #14356b;
+  --color-blue-500: #1d4ed8;
+  --color-green-500: #10b981;
+  --color-amber-500: #f59e0b;
+  --color-amber-400: #fbbf24;
+  --color-cream: #f4f6fa;
+  --color-white-soft: #fafafc;
+
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-heading: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    @apply m-0 bg-blue-950 font-body text-white-soft antialiased;
+  }
+
+  ::selection {
+    @apply bg-amber-500/30 text-white-soft;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .section-label {
+    @apply font-heading text-xs font-medium uppercase tracking-[0.25em] text-amber-500;
+  }
+
+  .glass-nav {
+    @apply border-b border-white/10 bg-blue-950/70 backdrop-blur-xl;
+  }
+
+  .marquee-track {
+    animation: marquee 30s linear infinite;
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
