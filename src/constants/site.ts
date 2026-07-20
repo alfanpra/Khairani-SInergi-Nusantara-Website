@@ -19,7 +19,7 @@ export const NAV_LINKS = [
 ] as const;
 
 export const FOOTER_DESCRIPTION =
-  "PT Khairani Sinergi Nusantara delivers premier boiler inspection, maintenance, repair, and retubing for power generation facilities across Indonesia — backed by certified technicians, strict HSE standards, and nationwide mobilization.";
+  "Premier boiler inspection, maintenance, and repair for power plants across Indonesia — backed by certified technicians and strict HSE standards.";
 
 type FooterLink = { label: string; path: string; external?: boolean };
 
@@ -30,13 +30,13 @@ type FooterColumn = {
 
 export const FOOTER_COLUMNS: readonly FooterColumn[] = [
   {
-    title: "Company",
+    title: "KSN",
     links: [
-      { label: "About Us", path: "/about" },
-      { label: "Our Team", path: "/team" },
+      { label: "Home", path: "/" },
+      { label: "About", path: "/about" },
+      { label: "Services", path: "/services" },
+      { label: "Team", path: "/team" },
       { label: "Contact", path: "/contact" },
-      { label: "Core Values", path: "/about" },
-      { label: "Safety Standards", path: "/about" },
     ],
   },
   {
@@ -46,7 +46,6 @@ export const FOOTER_COLUMNS: readonly FooterColumn[] = [
       { label: "Maintenance & Repair", path: "/services#maintenance" },
       { label: "Professional Retubing", path: "/services#retubing" },
       { label: "Supporting Services", path: "/services#supporting" },
-      { label: "Emergency Response", path: "/contact" },
     ],
   },
   {
@@ -54,58 +53,20 @@ export const FOOTER_COLUMNS: readonly FooterColumn[] = [
     links: [
       { label: "HSE Commitment", path: "/about" },
       { label: "Certifications", path: "/team" },
-      { label: "Spare Parts Supply", path: "/services#supporting" },
       { label: "Nationwide Coverage", path: "/" },
-      { label: "Trusted Clients", path: "/" },
+      { label: "Emergency Response", path: "/contact" },
     ],
   },
   {
-    title: "Partners",
+    title: "Company",
     links: [
       { label: "Partner With Us", path: "/contact" },
-      { label: "WhatsApp Inquiry", path: COMPANY.whatsappUrl, external: true },
-      { label: "Project Assessment", path: "/contact" },
-      { label: "Corporate Inquiries", path: "/contact" },
-      { label: "Field Mobilization", path: "/services" },
-    ],
-  },
-  {
-    title: "Legal",
-    links: [
       { label: "Privacy Policy", path: "/contact" },
       { label: "Terms of Service", path: "/contact" },
-      { label: "Safety Policy", path: "/about" },
-      { label: "Compliance Standards", path: "/services" },
-      { label: "Cookie Policy", path: "/contact" },
+      { label: "WhatsApp Inquiry", path: COMPANY.whatsappUrl, external: true },
     ],
   },
 ];
-
-export const FOOTER_QUICK_LINKS = NAV_LINKS;
-
-export const FOOTER_LEGAL_LINKS = [
-  { label: "Privacy", path: "/contact" },
-  { label: "Terms", path: "/contact" },
-  { label: "Sitemap", path: "/" },
-] as const;
-
-export const FOOTER_SOCIAL_LINKS = [
-  {
-    label: "WhatsApp",
-    href: COMPANY.whatsappUrl,
-    icon: "whatsapp",
-  },
-  {
-    label: "Email",
-    href: `mailto:${COMPANY.email}`,
-    icon: "email",
-  },
-  {
-    label: "Phone",
-    href: `tel:${COMPANY.phone.replace(/\s/g, "")}`,
-    icon: "phone",
-  },
-] as const;
 
 export const MARQUEE_ITEMS = [
   "ZERO ACCIDENT POLICY",
