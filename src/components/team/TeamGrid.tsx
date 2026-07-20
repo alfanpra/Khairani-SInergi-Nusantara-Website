@@ -1,4 +1,5 @@
 import { TEAM_CERTIFICATIONS, TEAM_MEMBERS } from '../../constants/site'
+import { Reveal } from '../ui/Reveal'
 
 function getInitials(name: string) {
   return name
@@ -28,7 +29,11 @@ function TeamMemberCard({
   const number = String(index + 1).padStart(2, '0')
 
   return (
-    <article className="relative h-[26rem] w-full overflow-hidden rounded-2xl border border-white/10 bg-blue-800 sm:h-[28rem]">
+    <Reveal
+      as="article"
+      className="relative h-[26rem] w-full overflow-hidden rounded-2xl border border-white/10 bg-blue-800 sm:h-[28rem]"
+      delay={index * 100}
+    >
       <img
         src={image}
         alt={`${name} — ${role}`}
@@ -61,7 +66,7 @@ function TeamMemberCard({
           ))}
         </div>
       </div>
-    </article>
+    </Reveal>
   )
 }
 
@@ -73,16 +78,16 @@ export function TeamGrid() {
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mb-12 grid gap-6 lg:mb-16 lg:grid-cols-12 lg:items-end">
-          <div className="lg:col-span-7">
+          <Reveal className="lg:col-span-7">
             <p className="section-label">Our People</p>
             <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3.5rem)] font-bold leading-tight">
               Leadership & <span className="text-amber-500">Field Experts</span>
             </h2>
-          </div>
-          <p className="text-base leading-relaxed text-white-soft/65 lg:col-span-5 lg:pb-1">
+          </Reveal>
+          <Reveal className="text-base leading-relaxed text-white-soft/65 lg:col-span-5 lg:pb-1" delay={150}>
             Certified professionals deployed nationwide — combining technical mastery with
             an uncompromising safety culture on every site.
-          </p>
+          </Reveal>
         </div>
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
@@ -99,7 +104,7 @@ export function TeamGrid() {
           ))}
         </div>
 
-        <div className="mt-16 rounded-2xl border border-white/10 bg-blue-800/30 px-6 py-8 sm:px-10">
+        <Reveal className="mt-16 rounded-2xl border border-white/10 bg-blue-800/30 px-6 py-8 sm:px-10" delay={200}>
           <p className="section-label mb-4">Certifications & Standards</p>
           <div className="flex flex-wrap gap-3">
             {TEAM_CERTIFICATIONS.map((cert) => (
@@ -111,7 +116,7 @@ export function TeamGrid() {
               </span>
             ))}
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   )

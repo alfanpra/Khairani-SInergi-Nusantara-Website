@@ -1,3 +1,5 @@
+import { Reveal } from './Reveal'
+
 type PageHeroProps = {
   label: string
   title: string
@@ -51,10 +53,14 @@ export function PageHero({
       )}
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-20 pt-32 lg:px-8">
-        <p className="section-label">{label}</p>
-        <h1 className="mt-4 max-w-4xl font-display text-[clamp(2.5rem,7vw,5.5rem)] font-bold leading-tight">
-          {title}
-        </h1>
+        <Reveal>
+          <p className="section-label">{label}</p>
+        </Reveal>
+        <Reveal delay={150}>
+          <h1 className="mt-4 max-w-4xl font-display text-[clamp(2.5rem,7vw,5.5rem)] font-bold leading-tight">
+            {title}
+          </h1>
+        </Reveal>
       </div>
     </section>
   )

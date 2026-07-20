@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { SERVICES } from '../../constants/site'
+import { Reveal } from '../ui/Reveal'
 
 type ServiceCardProps = {
   index: number
@@ -14,10 +15,7 @@ function ServiceCard({ index, id, title, description, image, bullets }: ServiceC
   const number = String(index + 1).padStart(2, '0')
 
   return (
-    <Link
-      to={`/services#${id}`}
-      className="relative flex min-h-[22rem] flex-col justify-end overflow-hidden rounded-2xl border border-white/10 bg-blue-800 hover:border-amber-500/60 sm:min-h-[26rem] lg:min-h-[28rem]"
-    >
+    <Reveal as={Link} to={`/services#${id}`} delay={index * 100} className="relative flex min-h-[22rem] flex-col justify-end overflow-hidden rounded-2xl border border-white/10 bg-blue-800 hover:border-amber-500/60 sm:min-h-[26rem] lg:min-h-[28rem]">
       <img
         src={image}
         alt={title}
@@ -58,26 +56,26 @@ function ServiceCard({ index, id, title, description, image, bullets }: ServiceC
           <span aria-hidden>→</span>
         </span>
       </div>
-    </Link>
+    </Reveal>
   )
 }
 
 export function ServicesPreview() {
   return (
-    <section id="services" className="reveal-up relative overflow-hidden bg-blue-900 py-24 lg:py-32">
+    <section id="services" className="relative overflow-hidden bg-blue-900 py-24 lg:py-32">
       <div className="pointer-events-none absolute -right-32 top-0 h-96 w-96 rounded-full bg-amber-500/5 blur-3xl" />
       <div className="pointer-events-none absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-blue-500/10 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mb-14 grid gap-8 lg:mb-20 lg:grid-cols-12 lg:items-end">
-          <div className="lg:col-span-7">
+          <Reveal className="lg:col-span-7">
             <p className="section-label">What We Do</p>
             <h2 className="mt-4 font-display text-[clamp(2.25rem,5vw,4.5rem)] font-bold leading-[1.05] text-balance">
               Core <span className="text-amber-500">Services</span>
             </h2>
-          </div>
+          </Reveal>
 
-          <div className="lg:col-span-5 lg:pb-2">
+          <Reveal className="lg:col-span-5 lg:pb-2" delay={150}>
             <p className="text-base leading-relaxed text-white-soft/65 lg:text-lg">
               Four specialized service lines — from NDT inspection and maintenance to
               precision retubing and nationwide technical support.
@@ -89,7 +87,7 @@ export function ServicesPreview() {
               View all services
               <span aria-hidden>→</span>
             </Link>
-          </div>
+          </Reveal>
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:gap-6">

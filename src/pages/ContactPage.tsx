@@ -1,4 +1,5 @@
 import { PageHero } from '../components/ui/PageHero'
+import { Reveal } from '../components/ui/Reveal'
 import { COMPANY } from '../constants/site'
 
 const BUSINESS_HOURS = [
@@ -12,9 +13,13 @@ export function ContactPage() {
     <>
       <PageHero label="Contact" title="Let's Work Together" compact />
 
-      <section className="reveal-up bg-cream py-24 text-blue-950 lg:py-32">
+      <section className="bg-cream py-24 text-blue-950 lg:py-32">
         <div className="mx-auto grid max-w-7xl gap-8 px-6 md:grid-cols-3 lg:px-8">
-          <article className="rounded-2xl border border-blue-900/10 bg-white p-8">
+          <Reveal
+            as="article"
+            className="rounded-2xl border border-blue-900/10 bg-white p-8"
+            delay={0}
+          >
             <p className="section-label !text-amber-500">Phone</p>
             <a
               href={`tel:${COMPANY.phone.replace(/\s/g, '')}`}
@@ -30,9 +35,13 @@ export function ContactPage() {
             >
               Chat on WhatsApp →
             </a>
-          </article>
+          </Reveal>
 
-          <article className="rounded-2xl border border-blue-900/10 bg-white p-8">
+          <Reveal
+            as="article"
+            className="rounded-2xl border border-blue-900/10 bg-white p-8"
+            delay={100}
+          >
             <p className="section-label !text-amber-500">Email</p>
             <a
               href={`mailto:${COMPANY.email}`}
@@ -40,20 +49,24 @@ export function ContactPage() {
             >
               {COMPANY.email}
             </a>
-          </article>
+          </Reveal>
 
-          <article className="rounded-2xl border border-blue-900/10 bg-white p-8">
+          <Reveal
+            as="article"
+            className="rounded-2xl border border-blue-900/10 bg-white p-8"
+            delay={200}
+          >
             <p className="section-label !text-amber-500">Office</p>
             <p className="mt-4 font-heading text-lg font-semibold text-blue-900">
               {COMPANY.address}
             </p>
-          </article>
+          </Reveal>
         </div>
       </section>
 
-      <section className="reveal-up bg-blue-900 py-24 lg:py-32">
+      <section className="bg-blue-900 py-24 lg:py-32">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:px-8">
-          <div>
+          <Reveal>
             <p className="section-label">Business Hours</p>
             <h2 className="mt-4 font-heading text-3xl font-semibold">When We&apos;re Available</h2>
             <ul className="mt-8 space-y-4">
@@ -67,9 +80,12 @@ export function ContactPage() {
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
 
-          <div className="flex flex-col items-center justify-center rounded-2xl border border-white/10 bg-blue-800/40 p-12 text-center">
+          <Reveal
+            className="flex flex-col items-center justify-center rounded-2xl border border-white/10 bg-blue-800/40 p-12 text-center"
+            delay={150}
+          >
             <p className="section-label">Direct Action</p>
             <h3 className="mt-4 font-heading text-2xl font-semibold">Start a Conversation</h3>
             <p className="mt-3 text-sm text-white-soft/70">
@@ -83,7 +99,7 @@ export function ContactPage() {
             >
               Chat on WhatsApp
             </a>
-          </div>
+          </Reveal>
         </div>
       </section>
     </>
