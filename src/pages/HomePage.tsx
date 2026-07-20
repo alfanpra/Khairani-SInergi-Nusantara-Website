@@ -1,3 +1,4 @@
+import { ClientSupport } from "../components/home/ClientSupport"
 import { AboutSnippet } from '../components/home/AboutSnippet'
 import { CallToAction } from '../components/home/CallToAction'
 import { Hero } from '../components/home/Hero'
@@ -13,6 +14,7 @@ export function HomePage() {
       <AboutSnippet />
       <MarqueeTicker />
       <ServicesPreview />
+      <ClientSupport />
       <KeyStats />
       <HSECommitment />
       <CallToAction />
