@@ -12,7 +12,7 @@ export function AboutPage() {
         compact
       />
 
-      <section className="bg-cream py-24 text-blue-950 lg:py-32">
+      <section className="reveal-up bg-cream py-24 text-blue-950 lg:py-32">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:px-8">
           <blockquote className="font-display text-3xl font-bold leading-tight text-blue-900">
             &ldquo;Becoming the leading, reliable provider of PLTU boiler maintenance
@@ -41,7 +41,7 @@ export function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-blue-900 py-24 lg:py-32">
+      <section className="reveal-up bg-blue-900 py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <p className="section-label">Core Values</p>
           <h2 className="mt-4 font-heading text-4xl font-semibold">SINERGI</h2>

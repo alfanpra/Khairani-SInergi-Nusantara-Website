@@ -29,7 +29,7 @@ export function ClientSupport() {
       ease: 'none',
       repeat: -1,
       modifiers: {
-        x: gsap.utils.unitize(x => parseFloat(x) % totalWidth)
+        x: gsap.utils.unitize((x: string) => parseFloat(x) % totalWidth)
       }
     })
   }, [])

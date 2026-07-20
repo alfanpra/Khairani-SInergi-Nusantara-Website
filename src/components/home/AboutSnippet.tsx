@@ -1,6 +1,6 @@
 export function AboutSnippet() {
   return (
-    <section className="bg-cream py-24 text-blue-950 lg:py-32">
+    <section className="reveal-up bg-cream py-24 text-blue-950 lg:py-32">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-12 lg:gap-16 lg:px-8">
         <div className="lg:col-span-5">
           <p className="section-label !text-amber-500">About KSN</p>

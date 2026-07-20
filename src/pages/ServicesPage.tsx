@@ -19,7 +19,7 @@ export function ServicesPage() {
         imageAlt="Worker welding at industrial site"
       />
 
-      <section className="bg-blue-900 py-24 lg:py-32">
+      <section className="reveal-up bg-blue-900 py-24 lg:py-32">
         <div className="mx-auto max-w-7xl space-y-16 px-6 lg:px-8">
           {SERVICES.map((service, index) => (
             <article
@@ -53,7 +53,7 @@ export function ServicesPage() {
         </div>
       </section>
 
-      <section className="bg-cream py-24 text-blue-950 lg:py-32">
+      <section className="reveal-up bg-cream py-24 text-blue-950 lg:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <p className="section-label !text-amber-500">Process</p>
           <h2 className="mt-4 font-heading text-3xl font-semibold text-blue-900">
@@ -76,7 +76,7 @@ export function ServicesPage() {
         </div>
       </section>
 
-      <section className="bg-gradient-to-r from-blue-800 to-blue-700 py-16">
+      <section className="reveal-up bg-gradient-to-r from-blue-800 to-blue-700 py-16">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-6 lg:flex-row lg:items-center lg:px-8">
           <div>
             <h2 className="font-heading text-2xl font-semibold">Need Emergency Response?</h2>

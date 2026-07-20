@@ -64,7 +64,7 @@ function ServiceCard({ index, id, title, description, image, bullets }: ServiceC
 
 export function ServicesPreview() {
   return (
-    <section id="services" className="relative overflow-hidden bg-blue-900 py-24 lg:py-32">
+    <section id="services" className="reveal-up relative overflow-hidden bg-blue-900 py-24 lg:py-32">
       <div className="pointer-events-none absolute -right-32 top-0 h-96 w-96 rounded-full bg-amber-500/5 blur-3xl" />
       <div className="pointer-events-none absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-blue-500/10 blur-3xl" />
 

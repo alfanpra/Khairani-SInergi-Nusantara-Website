@@ -12,7 +12,7 @@ export function TeamPage() {
         imageAlt="Morning safety induction briefing"
       />
 
-      <section className="bg-cream py-16 text-blue-950 lg:py-20">
+      <section className="reveal-up bg-cream py-16 text-blue-950 lg:py-20">
         <div className="mx-auto max-w-3xl px-6 text-center lg:px-8">
           <p className="font-display text-2xl font-bold leading-snug text-blue-900">
             &ldquo;Competent, integrity-driven, and synergistic — our workforce is our

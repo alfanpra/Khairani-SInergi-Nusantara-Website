@@ -6,18 +6,44 @@ type PageHeroProps = {
   compact?: boolean
 }
 
-export function PageHero({ label, title, image, imageAlt, compact }: PageHeroProps) {
+export function PageHero({
+  label,
+  title,
+  image,
+  imageAlt,
+  compact,
+}: PageHeroProps) {
+  const isVideo =
+    image?.endsWith('.webm') ||
+    image?.endsWith('.mp4') ||
+    image?.endsWith('.ogg')
+
   return (
     <section
-      className={`relative flex items-end overflow-hidden ${compact ? 'min-h-[60vh]' : 'min-h-[70vh]'}`}
+      className={`relative flex items-end overflow-hidden ${
+        compact ? 'min-h-[60vh]' : 'min-h-[70vh]'
+      }`}
     >
       {image ? (
         <>
-          <img
-            src={image}
-            alt={imageAlt ?? title}
-            className="absolute inset-0 h-full w-full object-cover"
-          />
+          {isVideo ? (
+            <video
+              src={image}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 h-full w-full object-cover"
+              aria-label={imageAlt ?? title}
+            />
+          ) : (
+            <img
+              src={image}
+              alt={imageAlt ?? title}
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          )}
+
           <div className="absolute inset-0 bg-gradient-to-t from-blue-950 via-blue-950/80 to-blue-900/50" />
         </>
       ) : (

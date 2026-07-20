@@ -3,7 +3,7 @@ import { IMAGES } from '../../constants/site'
 
 export function HSECommitment() {
   return (
-    <section className="relative min-h-[70vh] overflow-hidden">
+    <section className="reveal-up relative min-h-[70vh] overflow-hidden">
       <img
         src={IMAGES.hse}
         alt="Worker with safety harness at industrial site"

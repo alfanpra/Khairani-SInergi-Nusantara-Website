@@ -2,7 +2,7 @@ import { COMPANY } from '../../constants/site'
 
 export function CallToAction() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-blue-800 via-blue-700 to-blue-500 py-24 lg:py-32">
+    <section className="reveal-up relative overflow-hidden bg-gradient-to-br from-blue-800 via-blue-700 to-blue-500 py-24 lg:py-32">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,158,11,0.15),transparent_50%)]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 text-center lg:px-8">

@@ -4,6 +4,7 @@ import { SeoHead } from '../seo/SeoHead'
 import { StructuredData } from '../seo/StructuredData'
 import { Footer } from './Footer'
 import { Navbar } from './Navbar'
+import { SmoothScroll } from './SmoothScroll'
 
 export function Layout() {
   const { pathname } = useLocation()
@@ -13,7 +14,7 @@ export function Layout() {
   }, [pathname])
 
   return (
-    <>
+    <SmoothScroll>
       <SeoHead />
       <StructuredData />
       <Navbar />
@@ -21,6 +22,6 @@ export function Layout() {
         <Outlet />
       </main>
       <Footer />
-    </>
+    </SmoothScroll>
   )
 }

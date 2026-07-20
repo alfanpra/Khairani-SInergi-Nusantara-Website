@@ -12,7 +12,7 @@ export function ContactPage() {
     <>
       <PageHero label="Contact" title="Let's Work Together" compact />
 
-      <section className="bg-cream py-24 text-blue-950 lg:py-32">
+      <section className="reveal-up bg-cream py-24 text-blue-950 lg:py-32">
         <div className="mx-auto grid max-w-7xl gap-8 px-6 md:grid-cols-3 lg:px-8">
           <article className="rounded-2xl border border-blue-900/10 bg-white p-8">
             <p className="section-label !text-amber-500">Phone</p>
@@ -51,7 +51,7 @@ export function ContactPage() {
         </div>
       </section>
 
-      <section className="bg-blue-900 py-24 lg:py-32">
+      <section className="reveal-up bg-blue-900 py-24 lg:py-32">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:px-8">
           <div>
             <p className="section-label">Business Hours</p>
