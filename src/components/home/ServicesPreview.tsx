@@ -110,7 +110,7 @@ export function ServicesPreview() {
               description={service.description}
               image={service.image}
               bullets={service.bullets}
-              featured={index === 0}
+              featured={false}
             />
           ))}
         </div>
